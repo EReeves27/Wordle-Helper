@@ -44,7 +44,6 @@ public class Main
 
     public static void analysis(Constructor pass)
     {
-        boolean cancel = false;
         int numInput;
         String strInput;
         char charInput;
