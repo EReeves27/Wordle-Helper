@@ -250,7 +250,7 @@ public class Main
                     System.out.println("Try to narrow your list down some more");
                     System.out.println();
                     System.out.println("If you would like to overwrite this");
-                    System.out.println("hit '1', or to move on, hit '2'");
+                    System.out.println("hit '1', or to move on, hit any other number");
                     System.out.println();
                     strInput = input.next();
                     int posInput = checkInput(strInput);
