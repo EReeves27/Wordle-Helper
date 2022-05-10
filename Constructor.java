@@ -1,4 +1,5 @@
-
+//© Copyright Ethan Reeves 2022
+//All Rights Reserved
 import java.util.*;
 public class Constructor
 {
