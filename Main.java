@@ -13,13 +13,15 @@ public class Main
 
         while(keepGoing)
         {
+            String strInput;
             System.out.println();
             System.out.println("Would you like to go again?");
             System.out.println("1. Yes");
             System.out.println("2. No");
             System.out.println();
 
-            int numInput = input.nextInt();
+            strInput = input.next();
+            int numInput = checkInput(strInput);
 
             if (numInput == 1)
             {
@@ -44,6 +46,7 @@ public class Main
     {
         boolean cancel = false;
         int numInput;
+        String strInput;
         char charInput;
         String letter;
         boolean keepGoing = true;
@@ -76,7 +79,8 @@ public class Main
             System.out.println("5. Quit");
             System.out.println();
 
-            numInput = input.nextInt();
+            strInput = input.next();
+            numInput = checkInput(strInput);
             if (numInput == 1) //Word does not include letter
             {
                 int stringLength = 0;
@@ -110,6 +114,7 @@ public class Main
                         }
                     }
                 }
+                
                 for (int x = 0; x < 50; x ++)
                 {
                     System.out.println();
@@ -122,7 +127,8 @@ public class Main
                 System.out.println("Words Remaining: " + sortedArray.size());
                 System.out.println("How many letters?");
 
-                int runTimes = input.nextInt();
+                strInput = input.next();
+                int runTimes = checkInput(strInput);
 
                 for (int j = 0; j < runTimes; j++)
                 {
@@ -134,7 +140,8 @@ public class Main
 
                     System.out.println();
                     System.out.println("What position? (1-5)");
-                    int posInput = input.nextInt();
+                    strInput = input.next();
+                    int posInput = checkInput(strInput);
                     posInput--;
 
                     for (int i = 0; i < sortedArray.size(); i++)
@@ -159,6 +166,7 @@ public class Main
                         }
                     }
                 }
+                
                 for (int x = 0; x < 50; x ++)
                 {
                     System.out.println();
@@ -171,7 +179,8 @@ public class Main
                 System.out.println("Words Remaining: " + sortedArray.size());
                 System.out.println("How many letters?");
 
-                int runTimes = input.nextInt();
+                strInput = input.next();
+                int runTimes = checkInput(strInput);
 
                 for (int y = 0; y < runTimes; y++)
                 {
@@ -182,7 +191,8 @@ public class Main
 
                     System.out.println();
                     System.out.println("What position? (1-5)");
-                    int posInput = input.nextInt();
+                    strInput = input.next();
+                    int posInput = checkInput(strInput);
                     
                     if (posInput == 1)
                     {
@@ -227,38 +237,13 @@ public class Main
                 }
             }
 
-            if (cancel) //Position where letters are not (NOT USED ANYMORE)
-            {
-                System.out.println();
-                System.out.println("What letter?");
-                charInput = input.next().charAt(0);
-                letter = Character.toString(charInput);
-
-                System.out.println();
-                System.out.println("What position? (1-5)");
-                int posInput = input.nextInt();
-                posInput--;
-
-                for (int i = 0; i < sortedArray.size(); i++)
-                {
-                    String checkWord = sortedArray.get(i);
-                    char c1 = checkWord.charAt(posInput);
-                    String check = Character.toString(c1);
-
-                    if (check.equals(letter))
-                    {
-                        sortedArray.remove(i);
-                        i = -1;
-                    }
-                }
-            }
-
             if (numInput == 4) //Print words remaining
             {
                 for (int x = 0; x < 50; x ++)
                 {
                     System.out.println();
                 }
+                
                 if (sortedArray.size() > 20)
                 {
                     System.out.println();
@@ -301,5 +286,28 @@ public class Main
                 System.out.println();
             }
         }
+    }
+    
+    public static int checkInput(String strInput)
+    {
+        int i = 0;
+        Scanner input = new Scanner(System.in);
+        boolean result = strInput.matches("[a-zA-Z]+");
+        
+        if (result == true)
+        {
+            System.out.println();
+            System.out.println("That is not a valid input!");
+            System.out.println("Try again: ");
+            System.out.println();
+            strInput = input.next();
+            i = checkInput(strInput);
+        }
+        else
+        {
+            i = Integer.parseInt(strInput);
+        }
+        
+        return i;
     }
 }
