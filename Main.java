@@ -1,3 +1,5 @@
+//© Copyright Ethan Reeves 2022
+//All Rights Reserved
 import java.util.Scanner;
 import java.util.*;
 public class Main
