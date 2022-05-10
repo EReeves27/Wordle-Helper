@@ -243,12 +243,25 @@ public class Main
                     System.out.println();
                 }
                 
-                if (sortedArray.size() > 20)
+                if (sortedArray.size() > 30)
                 {
                     System.out.println();
-                    System.out.println("Too many words remaining");
-                    System.out.println("Try to get rid of some");
+                    System.out.println("You still have " + sortedArray.size() + " words remaining");
+                    System.out.println("Try to narrow your list down some more");
                     System.out.println();
+                    System.out.println("If you would like to overwrite this");
+                    System.out.println("hit '1', or to move on, hit '2'");
+                    System.out.println();
+                    strInput = input.next();
+                    int posInput = checkInput(strInput);
+                    
+                    if (posInput == 1)
+                    {
+                        System.out.println();
+                        System.out.println("Words Remaining:");
+                        System.out.println(sortedArray.toString());
+                        System.out.println();
+                    }
                 }
                 else
                 {
